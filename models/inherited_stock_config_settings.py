@@ -9,7 +9,7 @@ class ResConfigSettings(models.TransientModel):
 	_inherit = ['res.config.settings']
 
 
-	notification_base = fields.Selection([('on_hand','Cantidades a la mano'),('fore_cast','')],related='company_id.notification_base',string='Notificacion basada en: ')
+	notification_base = fields.Selection([('on_hand','Cantidades a la mano'),('fore_cast','Cantidades Previstas')],related='company_id.notification_base',string='Notificacion basada en: ')
 	notification_products = fields.Selection([('for_all','Global para todos los productos'),('fore_product',' Individial para todos los productos')],related='company_id.notification_products',string='Cantidad minima basada en :')
 	min_quantity = fields.Float(string = 'Cantidad limite',related='company_id.min_quantity')
 	notification_user_id = fields.Many2one('res.users',related='company_id.notification_user_id',string = 'Usuario para Notificacion')
