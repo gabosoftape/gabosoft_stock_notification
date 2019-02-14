@@ -31,20 +31,12 @@ class ResConfigSettings(models.TransientModel):
 			if res.notification_base == 'on_hand':
 				if res.notification_products == 'for_all':
 					result = self.env['product.product'].search([('qty_available','<',res.min_quantity)])
-
-
 					for product in result:
-
 						products_list.append([0,0,{'name':product.name,
 												'limit_quantity':res.min_quantity,
 												'stock_quantity':product.qty_available}])
-
-
 				if res.notification_products == 'fore_product':
-
 					result = self.env['product.product'].search([])
-
-
 					for product in result:
 						if product.qty_available < product.min_quantity:
 							products_list.append([0,0,{'name':product.name,
@@ -67,21 +59,10 @@ class ResConfigSettings(models.TransientModel):
 														'limit_quantity':product.min_quantity,
 													'stock_quantity':product.virtual_available}])
 
-
-
-
 			res.low_stock_products_ids = products_list
-
-
 			return
 		else :
 			return
-
-
-
-
-
-
 
 	def action_low_stock_send(self):
 		self.action_list_products_()
@@ -89,17 +70,9 @@ class ResConfigSettings(models.TransientModel):
 		res = self.env['res.config.settings'].search([],order="id desc", limit=1)
 
 		if res.id :
-
-
-
 			template_id = self.env.ref('bi_product_low_stock_notification.low_stock_email_template')
-
 			send = template_id.send_mail(res.id, force_send=True)
-
 			return True
-
-
-
 		return True
 
 
@@ -108,7 +81,7 @@ class low_stock_product(models.TransientModel):
 	_name='low.stock.transient'
 
 
-	name=fields.Char(string='Product name')
-	stock_quantity=fields.Float(string='Quantity')
-	limit_quantity=fields.Float(string='Quantity limit')
+	name=fields.Char(string='Nombre del procudto')
+	stock_quantity=fields.Float(string='Cantidad')
+	limit_quantity=fields.Float(string='Cantidad limite')
 	stock_product_id=fields.Many2one('res.config.settings')

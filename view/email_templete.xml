@@ -12,14 +12,14 @@
 	         <field name="body_html">
             <![CDATA[
 
-	      <p>Cordialmente ${object.notification_user_id.name},</p> <br/><br/>
+	      <p>Hola ${object.notification_user_id.name},</p> <br/><br/>
 	      <br/>
       %if object.notification_products == 'for_all':
         %if object.notification_base == 'on_hand':
-            <p>List of product which have less on hand quantity  then global quantity${object.min_quantity} are:</p><br/>
+            <p>Lista de productos que tienen menos cantidad disponible que cantidad global${object.min_quantity} are:</p><br/>
         %endif
         %if object.notification_base == 'fore_cast':
-            <p>List of product which have less forecast quantity then global quantity ${object.min_quantity} are:</p><br/>
+            <p>Lista de productos que tienen menos cantidad pronosticada que cantidad global${object.min_quantity} are:</p><br/>
         %endif
 
         <table border=1>
@@ -41,10 +41,10 @@
 
       %if object.notification_products == 'fore_product':
         %if object.notification_base == 'on_hand':
-           <p>List of product which have less on hand quantity  then individual minimum quantity are:</p><br/>
+           <p>Lista de productos que tienen menos cantidad disponible. la cantidad minima individual es :</p><br/>
         %endif
         %if object.notification_base == 'fore_cast':
-           <p>List of product which have less forecast quantity  then individual minimum quantity are:</p><br/>
+           <p>Lista de productos que tienen menos cantidad prevista. la cantidad minima individual es :</p><br/>
         %endif
          <table border=1>
           <tr>
@@ -63,19 +63,6 @@
         %endfor
       </table>
       %endif
-
-
-
-
-
-
-
-
-
-
-
-
-
 	    ]]>
 	  </field>
        </record>
