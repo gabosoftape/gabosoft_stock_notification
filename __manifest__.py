@@ -7,7 +7,7 @@
 	'category': 'Inventory',
 	'sequence':140 ,
     "price": 19,
-    "currency": 'EUR',
+    "currency": 'USD',
 	'summary': 'This apps help to receive low stock notification about product when product stock goes below on certian stock.',
 	'description': """To send notification to user while stock is low
 		This apps help to receive low stock notification about product when product stock goes below on certian stock
@@ -49,8 +49,8 @@
 		warehouse minimum product stock notification
 		warehouse minimum product stock alarms
 	""",
-	'author':'Browseinfo',
-	'website': 'https://www.browseinfo.in',
+	'author':'Gabosoft',
+	'website': 'https://www.gabosoft.in',
 	'depends': ['base','sale_management','stock','mail'],
 	'data': [
 	'view/product_product_view.xml',
@@ -59,10 +59,10 @@
 	'data/low_stock_notification_cron.xml',
 			
 	],
-	
+
 	'test': [],
-		
-	
+
+
 	'demo': [],
 	'css': [],
 	'installable': True,
@@ -70,5 +70,3 @@
 	'application': False,
     "images":['static/description/Banner.png'],
 }
-
-
